@@ -1,0 +1,507 @@
+body
+{
+    background: #f3f6ff;
+    width: 100%;
+    height: 100%;
+}
+
+span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #000;
+    color: red;
+    padding: 5px;
+    width: 100%;
+  }
+  
+  span i {
+    margin-right: 10px;
+  }
+  
+  span i.bx-phone {
+    margin-left: auto;
+  }
+
+
+
+  .nav1 {
+    background-color: #ff6f6f;
+    padding: 5px;
+  }
+  
+  .nav1 a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .nav1 a:hover {
+    background-color: transparent;
+    color: #000;
+  }
+  
+  .nav1 a i {
+    margin-left: 5px;
+  }
+
+
+  .nav1 {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  p
+{
+    margin-left: 900px;
+    font-size: 18px;
+}
+
+
+.container {
+     /* Add a border */
+    padding: 10px; /* Add padding */
+    width: 300px; /* Set a fixed width */
+    background: #fff;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+
+  .container li {
+    margin: 0; /* Remove default margin */
+    padding: 5px 0; /* Add vertical padding */
+    list-style: none; /* Remove list bullet */
+    font-size: 18px;
+  }
+
+  .container hr {
+    border: none; /* Remove default hr border */
+    border-top: 0px solid black; /* Add custom hr border */
+    margin: 5px 0; /* Add vertical margin */
+  }
+
+  .container li a
+  {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .container li a:hover
+  {
+    color: #ff6f6f;
+  }
+
+  .container li i
+  {
+    color: #ff6f6f;
+  }
+
+
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    
+  }
+
+  .logo {
+    margin-right: 10px;
+    width: 100%;
+    height: 80px;
+  }
+
+  .search {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 600px;
+    width: 200%;
+    margin-bottom: 20px;
+  }
+
+  .search input[type="text"] {
+    padding-right: 30px;
+    width: 100%;
+    height: 40px;
+    padding: 0 15px;
+    color: #666666;
+    border: 1px solid #FF6F61;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+
+
+  .search-link {
+    position: absolute;
+    width: 40px;
+    height: 38px;
+    top: 13px;
+    right: 1px;
+    padding: 0 15px;
+    border: none;
+    background: none;
+    color: #FF6F61;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .search-link i {
+    color: #ff6f6f;
+    font-size: 25px;
+  }
+
+  .search-link i:hover
+  {
+    color: #fff;
+    bottom: 30px;
+  }
+
+  .search-link:hover {
+    background-color: #ff6f6f;
+    color: #fff;
+    right: 1px;
+    top: 0.9px;
+    font-size: 20px;
+  }
+
+  /*** viewed list start***/
+  .container-fluid {
+    padding: 10px 20px;
+  }
+  
+  .breadcrumb {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .breadcrumb-item {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .breadcrumb-item a {
+    text-decoration: none;
+    color: #ff6f6f;
+  }
+
+  .breadcrumb-item a:hover{
+    color: #666;
+  }
+  
+  .breadcrumb-item::after {
+    content: "/";
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #666;
+  }
+  
+  .breadcrumb-item:last-child::after {
+    content: "";
+  }
+  /***end viewed list***/
+
+
+  /*** my accout start css***/
+  .nav {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 70%;
+    margin-left: 10%;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+  }
+  
+  .nav-link:hover {
+    background-color: #ff6f6f;
+    color: #fff;
+  }
+  
+  .nav-link.active {
+    background-color: #ff6f6f;
+    color: #fff;
+  }
+  
+  .nav-link i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  .tab-pane {
+    display: none;
+    box-sizing: border-box;
+    background: #fff;
+    color: #000;
+    width: 71%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+  }
+
+  .tab-pane h4{
+    margin-left: 1%;
+  }
+
+  .tab-pane p{
+    color: #000;
+    margin-left: 1%;
+  }
+  
+  .tab-pane.show {
+    display: block;
+  }
+
+  .tab{
+    background-color: #000;
+  }
+
+  #dashboard-tab{
+    font-size: 23px;
+  }
+
+  #dashboard-tab .tap p{
+    font-size: 24px;
+  }
+
+  #orders-tab{
+    font-size: 25px;
+  }
+
+  table{
+    color: #000;
+    font-size: 20px;
+    margin-left: 10%;
+    width: 60%;
+    padding: 1%;
+    font-size: 23px;
+  }
+
+  table td{
+    text-align: center;
+  }
+
+  #address-tab h4, h5{
+    color: #000;
+    font-size: 26px;
+    margin-right: 10%;
+  }
+
+  #payment-tab{
+    color: #000;
+    font-size: 23px;
+  }
+
+  #payment-tab p{
+    font-size: 24px
+  }
+
+  #address-tab button a{
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    font-size: 20px;
+  }
+
+  .row{
+    margin-left: 2%;
+  }
+
+  #checkout p{
+    color: #000;
+    font-size: 20px;
+    margin-right: 10%;
+  }
+
+  #account-tab{
+    color: #000;
+    font-size: 20px;
+  }
+
+  #account-tab input{
+    font-size: 100%;
+  }
+
+  #account-tab button{
+    font-size: 20px;
+  }
+
+  #account-tab button a{
+    text-decoration: none;
+    color: #000;
+  }
+
+  .rowss{
+    margin-left: 2%;
+  }
+  /***  End my account css***/
+
+
+
+
+
+  /****footer start css***/
+footer {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    text-decoration: none;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    flex-basis: 23%;
+  }
+  
+  .footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+  }
+
+  .footer-section ul li a:hover
+  {
+    color: #ff6f6f;
+  }
+  
+  .contact-info li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-info ul li a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .social a {
+    color: #000;
+    margin-right: 10px;
+    font-size: 30px;
+  }
+
+  .social a:hover{
+    color: #ff6f6f;
+  }
+
+  .footer-section .payment-method {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  
+  .footer-section .payment-method img {
+    max-width: 150px;
+    margin-right: 10px;
+    width: 30%;
+  }
+  
+  .footer-section .payment-security {
+    display: flex;
+    align-items: center;
+    margin-left: 1500px;
+  }
+  
+  .footer-section .payment-security .security-logos {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-section .payment-security .security-logos img {
+    max-width: 70px;
+    margin-right: 10px;
+    width: 30%;
+  }
+
+.footer-bottom
+{
+    background: #000;
+    color: #ff6f6f;
+}
+
+/***end footer***/
+
+
+/***footer bottom***/
+
+.footer-bottom {
+    background-color: black;
+    color: white;
+    padding: 10px;
+  }
+  
+  .footer-bottom .copyright {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-bottom .left-text {
+    text-align: left;
+    margin-left: 300px;
+    
+  }
+
+  .footer-bottom .left-text a{
+    color: #ff6f6f;
+    text-decoration: none;
+  }
+  
+  .footer-bottom .right-text {
+    text-align: right;
+    margin-right: 300px;
+  }
+
+  .footer-bottom .right-text a{
+    text-decoration: none;
+    color: #ff6f6f;
+  }
+
+  /***end of footr bttn***/
+
+  /***back to top***/
+  .back-to-top{
+    font-size: 60px;
+    margin-left: 48%;
+    background: #ff6f6f;
+    color: #fff;
+    border-radius: 5px;
+    align-items: center;
+  }
+
+  .back-to-top:hover{
+    background: #666666;
+  }
+
+  /***end back to top***/

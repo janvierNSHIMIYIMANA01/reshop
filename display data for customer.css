@@ -1,0 +1,18 @@
+table{
+    margin-right: 20%;
+    font-size: 20px;
+    font-weight: solid;
+}
+
+th{
+    background: #ff5;
+}
+
+tr:nth-child(even) {background: #ff6f6f;}
+td{
+    color: aliceblue;
+}
+tr
+{
+    color: #000;
+}

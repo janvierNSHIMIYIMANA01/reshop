@@ -1,0 +1,464 @@
+<?php
+
+include("messagecount.php");
+
+?>
+
+<?php
+    session_start();
+
+    // Check if the admin is logged in
+    if (!isset($_SESSION['admin_name'])) {
+        header("Location: adminlogin.php");
+        exit();
+    }
+
+    // Get the logged-in admin's name and photo from the session
+    $name = isset($_SESSION['admin_name']) ? $_SESSION['admin_name'] : '';
+    $photo = isset($_SESSION['admin_photo']) ? $_SESSION['admin_photo'] : '';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <link rel="stylesheet" href="my res dashbrd.css">
+      <link rel="stylesheet" href="display data for customers.css">
+      <title>RES DashBoard</title>
+
+      <style>
+    .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            padding: 0;
+            margin-top: -150%;
+            background-color: #ff6f;
+            height: 15%;
+            border: none;
+            box-shadow: 0px 8px 5px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:focus {
+            background-color: transparent;
+            color: #000;
+            border-radius: 50px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+</style>
+        
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+              <div class="logo">
+                <img src="shop.jpg">
+                <h2>RE<span class="danger">SHOP</span></h2>
+              </div>
+                <div class="close" id="close-btn">
+                  <span class="material-icons-sharp">
+                    close
+                  </span>
+                </div>
+            </div>
+
+    <div class="sidebar">
+        <a href="my res dashbrd.php">
+            <span class="material-icons-sharp">
+                grid_view
+                </span>
+            <h3>DashBoard</h3>
+        </a>
+        <a href="my res dashbrd2.php">
+            <span class="material-icons-sharp">
+                visibility
+                </span>
+            <h3>all customer</h3>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">
+                receipt_long
+                </span>
+            <h3>Order</h3>
+        </a>
+        <a href="categorydash.php">
+            <span class="material-icons-sharp">
+              category
+            </span>
+            <h3>Categories</h3>
+        </a>
+        <a href="messagedash.php">
+            <span class="material-icons-sharp">
+                email
+                </span>
+            <h3>Messages</h3>
+            <span class="message-count"><?php echo $messageCount; ?></span>
+        </a>
+
+        <a href="allprdct.php">
+            <span class="material-icons-sharp">
+                visibility
+                </span>
+            <h3>All Product</h3>
+        </a>
+        <a href="add product.php">
+            <span class="material-icons-sharp">
+                add
+                </span>
+            <h3>Add Product</h3>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">
+                report_gmailerrorred
+                </span>
+            <h3>Reports</h3>
+        </a>
+                <a href="dashtable.php">
+            <span class="material-icons-sharp">
+              table_view
+            </span>
+            <h3>tables</h3>
+        </a>
+         <a href="#">
+            <span class="material-icons-sharp">
+              assessment
+            </span>
+            <h3>chart</h3>
+        </a>
+
+    <div class="container">
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">
+                <span class="material-icons-sharp">
+                    description
+                </span>
+                <h3>Pages</h3>
+                <span class="material-icons-sharp">
+                    arrow_drop_down
+                </span>
+            </a>
+            <div class="dropdown-menu">
+                <a href="signin.php" class="dropdown-item">Regstr</a>
+                <a href="adminlogin.php" class="dropdown-item">Login</a>
+            </div>
+        </div>
+    </div>
+
+        <a href="#" id="logout" onclick="logout()">
+            <span class="material-icons-sharp">
+              logout
+            </span>
+            <h3>Logout</h3>
+          </a>
+        <script>
+            function logout() {
+              var result = confirm("Are you sure you want to logout?");
+              if (result) {
+                // Perform logout action
+                alert("You have been logged out!");
+                window.location.href = "adminlogin.php";
+                // Redirect to another page if needed: window.location.href = "logout.html";
+              } else {
+                // Stay on the current page
+                alert("Logout canceled. You're still on the page!");
+                window.location.href = "my res dashbrd2.php";
+              }
+            }        
+        </script>
+    </div>
+    </aside>
+
+    <main>
+        <h1>DashBoard</h1>
+
+        <div class="date">
+            <input type="date">
+        </div>
+
+        <div class="insight">
+            <div class="sales">
+                <span class="material-icons-sharp">
+                    analytics
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Sales</h3>
+                            <h1>$25000</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+            </div>
+                     <!-----------sales--------------->
+            <div class="expenses">
+                <span class="material-icons-sharp">
+                    bar_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Expenses</h3>
+                            <h1>$14000</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>50%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+            </div>
+                    <!---------------Expenses--------------->
+            <div class="incame">
+                <span class="material-icons-sharp">
+                    stacked_line_chart
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Total Incame</h3>
+                            <h1>$55000</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>91%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 Hours</small>
+            </div>
+            <!--------------Incame------------------>
+        </div>
+        <!-------------End of insight--------------->
+        <div class="recent-order">
+            <h2>all customer viewed...</h2>
+            <?php
+             $servername = "localhost";
+             $username = "root";
+             $password = "";
+             $dbname = "reshop";
+
+              $conn = mysqli_connect($servername, $username, $password, $dbname);
+               if ($conn->connect_error) 
+                {
+                 die("Connection failed: " . $conn->connect_error);
+                }
+
+               if (isset($_GET["delete"])) {
+                $id = $_GET["delete"];
+
+              // Perform the deletion query
+              $sql = "DELETE FROM customer WHERE id = '$id'";
+              if ($conn->query($sql) === TRUE) {
+              // Redirect back to the original page after deletion
+             //header("Location: dash.php");
+             //exit();
+              } else {
+                echo "Error deleting record: " . $conn->error;
+                }
+              }
+
+              $sql = "SELECT id, username, email, phone, password, date FROM customer";
+              $result = $conn->query($sql);
+            ?>
+
+            <table>
+             <tr>
+              <th>id</th>
+              <th>username</th>
+              <th>E_mail</th>
+              <th>Phone</th>
+              <th>Password</th>
+              <th>date</th>
+              <th>action</th>
+             </tr>
+
+              <?php
+               if ($result->num_rows > 0) {
+               while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                <td>" . $row["id"] . "</td>
+                <td>" . $row["username"] . "</td>
+                <td>" . $row["email"] . "</td>
+                <td>" . $row["phone"] . "</td>
+                <td>" . $row["password"] . "</td>
+                <td>" . $row["date"] . "</td>
+                <td>
+                    <a href='edit.php?id=" . $row["id"] . "'>Edit</a>
+                </td>
+                <td>
+                    <a href='?delete=" . $row["id"] . "' onclick='return confirm(\"Are you sure you want to delete " . $row["username"] . " from the database?\")'>Delete</a>
+                </td>
+                </tr>";
+               }
+               } else {
+                 echo "<tr><td colspan='7'>0 result</td></tr>";
+               }
+
+                $conn->close();
+             ?>
+
+            </table>
+ <a href="#">Show All</a>
+        </div>
+    </main>
+
+    <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+                <span class="material-icons-sharp">
+                    menu
+                    </span>
+            </button>
+            <div class="theme-toggler">
+                <span class="material-icons-sharp active">
+                    light_mode
+                </span>
+                <span class="material-icons-sharp">
+                        dark_mode
+                </span>
+            </div>
+            <form action="adminlogin.php" method="POST">
+            <div class="profile">
+            <div class="info">
+                    <p>Hey, <b><?php echo $name; ?></b></p>
+                    <small class="text-muted">Admin</small>
+                </div>
+                <div class="profile-photo">
+                    <img src="<?php echo $photo; ?>" alt="Admin Photo">
+                </div>
+            </div>
+            </div>
+
+          <!-----------------------Recent Update---------------------->
+            <div class="recent-updates">
+                <h2>Recent Update</h2>
+                <div class="updates">
+                    <div class="update">
+                        <div class="profile-photo">
+                            <img src="cruise.jpg" alt="">
+                        </div>
+                        <div class="message">
+                            <p><b>Janvier</b> received his order of Night lion GPS drone.</p>
+                            <small class="text-muted"> 2 Minutes Ago</small>
+                        </div>
+
+                        <div class="update">
+                            <div class="profile-photo">
+                                <img src="vandrooo.jpg" alt="">
+                            </div>
+                            <div class="message">
+                                <p><b>Vandrossi</b> received his order of Night lion GPS drone.</p>
+                                <small class="text-muted"> 2 Minutes Ago</small>
+                            </div>
+                        </div>
+                </div>
+                <!-----------------end of recent updates------------------------>
+                <div class="sales-analytics">
+                    <h2>Sales Analytics</h2>
+                    <div class="item online">
+                        <div class="icon">
+                            <span class="material-icons-sharp">
+                                shopping_cart
+                                </span>
+                        </div>
+                        <div class="right">
+                            <div class="info">
+                                <h3>ONLINE ORDERS</h3>
+                                <small class="text-muted">Last 24Hours</small>
+                            </div>
+                            <h5 class="success">+39%</h5>
+                            <h3>3849</h3>
+                        </div>
+                    </div>
+                    <div class="item offline">
+                        <div class="icon">
+                            <span class="material-icons-sharp">
+                                local_mall
+                                </span>
+                        </div>
+                        <div class="right">
+                            <div class="info">
+                                <h3>OFF ORDERS</h3>
+                                <small class="text-muted">Last 24Hours</small>
+                            </div>
+                            <h5 class="danger">-17%</h5>
+                            <h3>2200</h3>
+                        </div>
+                    </div>
+                    <div class="item customers">
+                        <div class="icon">
+                            <span class="material-icons-sharp">
+                                person
+                                </span>
+                        </div>
+                        <div class="right">
+                            <div class="info">
+                                <h3>NEW CUTOMERS</h3>
+                                <small class="text-muted">Last 24Hours</small>
+                            </div>
+                            <h5 class="success">+25%</h5>
+                            <h3>349</h3>
+                        </div>
+                    </div>
+                    <div class="item add-product">
+                        <div>
+                            <span class="material-icons-sharp">
+                                add
+                                </span>
+                                <h3>Add Product</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    
+    <script src="my res dashbrd.js"></script>
+    <script>
+     document.addEventListener('DOMContentLoaded', function () {
+            var dropdownToggle = document.querySelector('.dropdown-toggle');
+            var dropdownMenu = document.querySelector('.dropdown-menu');
+
+            dropdownToggle.addEventListener('click', function (event) {
+                event.preventDefault();
+                dropdownMenu.classList.toggle('show');
+            });
+
+            window.addEventListener('click', function (event) {
+                if (!event.target.matches('.dropdown-toggle')) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
